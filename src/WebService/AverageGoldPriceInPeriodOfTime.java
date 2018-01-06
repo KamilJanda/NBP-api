@@ -4,7 +4,11 @@ public class AverageGoldPriceInPeriodOfTime implements Strategy {
 
     public AverageGoldPriceInPeriodOfTime(String date, String currency)
     {
-        int x=2;
+
+        int y=2;
+
+
+
 
     }
 
