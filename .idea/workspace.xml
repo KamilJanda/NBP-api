@@ -118,8 +118,8 @@
       <file leaf-file-name="AverageGoldPriceInPeriodOfTime.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WebService/AverageGoldPriceInPeriodOfTime.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+            <state relative-caret-position="102">
+              <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -387,8 +387,16 @@
       <workItem from="1515079370186" duration="605000" />
       <workItem from="1515190110464" duration="621000" />
       <workItem from="1515269083084" duration="929000" />
-      <workItem from="1515270034321" duration="570000" />
+      <workItem from="1515270034321" duration="719000" />
     </task>
+    <task id="LOCAL-00001" summary="test3">
+      <created>1515270636524</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1515270636524</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -424,7 +432,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21696000" />
+    <option name="totallyTimeSpent" value="21845000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -464,6 +472,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test3" />
+    <option name="LAST_COMMIT_MESSAGE" value="test3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -893,8 +905,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WebService/AverageGoldPriceInPeriodOfTime.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        <state relative-caret-position="102">
+          <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
           <folding />
         </state>
       </provider>
