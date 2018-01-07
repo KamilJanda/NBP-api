@@ -15,13 +15,7 @@ public class Main {
     public static void main(String[] args) throws Exception{
 
 
-
-
-
-
-
-        /*
-        URL oracle = new URL("http://api.nbp.pl/api/exchangerates/rates/a/gbp/last/10/?format=json");
+        URL oracle = new URL("http://api.nbp.pl/api/cenyzlota/?format=json");
         URLConnection yc = oracle.openConnection();
         BufferedReader in = new BufferedReader(new InputStreamReader(
                 yc.getInputStream()));
@@ -29,7 +23,7 @@ public class Main {
         while ((inputLine = in.readLine()) != null)
             System.out.println(inputLine);
         in.close();
-*/
+
 
     }
 }

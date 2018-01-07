@@ -1,4 +1,4 @@
 package WebService;
 
-public class ParsedObject {
+abstract class ParsedObject {
 }

@@ -7,4 +7,8 @@ public class AverageGoldPriceInPeriodOfTime implements Strategy {
 
     }
 
+    @Override
+    public void makeQueryToServiceApi() {
+
+    }
 }
