@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) throws Exception{
 
 
-        URL oracle = new URL("http://api.nbp.pl/api/cenyzlota/?format=json");
+        URL oracle = new URL("http://api.nbp.pl/api/exchangerates/tables/a/?format=json");
         URLConnection yc = oracle.openConnection();
         BufferedReader in = new BufferedReader(new InputStreamReader(
                 yc.getInputStream()));

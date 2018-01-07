@@ -2,8 +2,8 @@ package WebService;
 
 public class NBPGold extends ParsedObject {
 
-    public String data;
-    public String cena;
+    private String data;
+    private Double cena;
 
     public NBPGold() {
     }
@@ -16,5 +16,11 @@ public class NBPGold extends ParsedObject {
                 '}';
     }
 
+    public String getData() {
+        return data;
+    }
 
+    public Double getCena() {
+        return cena;
+    }
 }

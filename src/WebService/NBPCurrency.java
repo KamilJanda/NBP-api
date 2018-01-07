@@ -6,14 +6,10 @@ public class NBPCurrency extends ParsedObject{
     private String no; // numer tabeli
     private String tradingDate; // data notowania (dotyczy tabeli C)
     private String effectiveDate; // data publikacji
-    private String rates; // lista kursów poszczególnych walut w tabeli
-    private String country; // nazwa kraju
-    private String symbol; // symbol waluty (numeryczny, dotyczy kursów archiwalnych)
-    private String currency; // nazwa waluty
-    private String code; // kod waluty
-    private String bid; // przeliczony kurs kupna waluty (dotyczy tabeli C)
-    private String ask; // przeliczony kurs sprzedaży waluty (dotyczy tabeli C)
-    private String mid; // przeliczony kurs średni waluty (dotyczy tabel A oraz B)
+    private Rates[] rates; // lista kursów poszczególnych walut w tabeli
+
+    public NBPCurrency() {
+    }
 
     public String getTable() {
         return table;
@@ -47,67 +43,11 @@ public class NBPCurrency extends ParsedObject{
         this.effectiveDate = effectiveDate;
     }
 
-    public String getRates() {
+    public Rates[] getRates() {
         return rates;
     }
 
-    public void setRates(String rates) {
+    public void setRates(Rates[] rates) {
         this.rates = rates;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getSymbol() {
-        return symbol;
-    }
-
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
-
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getBid() {
-        return bid;
-    }
-
-    public void setBid(String bid) {
-        this.bid = bid;
-    }
-
-    public String getAsk() {
-        return ask;
-    }
-
-    public void setAsk(String ask) {
-        this.ask = ask;
-    }
-
-    public String getMid() {
-        return mid;
-    }
-
-    public void setMid(String mid) {
-        this.mid = mid;
     }
 }

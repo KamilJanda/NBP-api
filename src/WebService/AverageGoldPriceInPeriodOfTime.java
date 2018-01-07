@@ -8,7 +8,17 @@ public class AverageGoldPriceInPeriodOfTime implements Strategy {
     }
 
     @Override
-    public void makeQueryToServiceApi() {
+    public String makeQueryToServiceApi(String url) {
+        return null;
+    }
+
+    @Override
+    public void createJSON() {
+
+    }
+
+    @Override
+    public void execute() {
 
     }
 }

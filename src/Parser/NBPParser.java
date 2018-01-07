@@ -61,7 +61,8 @@ public class NBPParser extends Parser {
     {
 
 
-        return new GoldAndCurrencyPriceForDate();
+        //return new GoldAndCurrencyPriceForDate();
+        return null;
     }
 
 

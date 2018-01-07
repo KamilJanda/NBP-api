@@ -2,7 +2,11 @@ package WebService;
 
 public interface Strategy {
 
-    //void execute();
-    void makeQueryToServiceApi();
+
+    String makeQueryToServiceApi(String url);
+
+    void createJSON();
+
+    void execute();
 
 }
