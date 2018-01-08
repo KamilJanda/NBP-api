@@ -1,8 +1,8 @@
 package Parser;
 
-public class ParserCreator {
+class ParserCreator {
 
-    public Parser create(String parserType)
+    Parser create(String parserType)
     {
         switch (parserType)
         {

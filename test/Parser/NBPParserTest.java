@@ -1,7 +1,7 @@
 package Parser;
 
 import WebService.AverageGoldPriceInPeriodOfTime;
-import WebService.Strategy;
+import WebService.IStrategy;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,9 +21,9 @@ class NBPParserTest {
 
 
 
-        Strategy strategy=nbpParser.getOperation();
+        IStrategy IStrategy =nbpParser.getStrategy();
 
-        assertTrue(strategy instanceof AverageGoldPriceInPeriodOfTime);
+        assertTrue(IStrategy instanceof AverageGoldPriceInPeriodOfTime);
 
 
     }

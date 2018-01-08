@@ -1,24 +1,41 @@
 package WebService;
 
-public class AverageGoldPriceInPeriodOfTime implements Strategy {
+public class AverageGoldPriceInPeriodOfTime extends NBPStrategy{
 
-    public AverageGoldPriceInPeriodOfTime(String date, String currency)
+    private String startDate;
+    private String endDate;
+
+    public AverageGoldPriceInPeriodOfTime(String startDate,String endDate)
     {
+        this.startDate=startDate;
+        this.endDate=endDate;
+        urlGoldQuery="http://api.nbp.pl/api/cenyzlota/"+startDate+"/"+endDate+"/?format=json";
+    }
 
+    private double countAvgPrice()
+    {
+        double avg=0;
+
+        for (NBPGold record: nbpGold) {
+            avg+=record.getCena();
+        }
+
+        avg/=nbpGold.length;
+
+        return avg;
     }
 
     @Override
-    public String makeQueryToServiceApi(String url) {
-        return null;
-    }
+    public String execute() {
+        createJsonObject();
+        double avgPrice=countAvgPrice();
 
-    @Override
-    public void createJSON() {
+        StringBuilder result=new StringBuilder();
 
-    }
+        result.append("Srednia cena w podanym okresie to: ");
+        result.append(String.format("%.2f",avgPrice));
 
-    @Override
-    public void execute() {
 
+        return result.toString();
     }
 }

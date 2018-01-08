@@ -2,10 +2,6 @@ package WebService;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-import java.lang.reflect.Executable;
-import java.rmi.UnexpectedException;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class GoldAndCurrencyPriceForDateTest {
@@ -30,9 +26,9 @@ class GoldAndCurrencyPriceForDateTest {
     @Test
     void createJSON() {
 
-        GoldAndCurrencyPriceForDate goldAndCurrencyPriceForDate=new GoldAndCurrencyPriceForDate("2013-01-02","usd");
+        NBPStrategy goldAndCurrencyPriceForDate=new GoldAndCurrencyPriceForDate("2013-01-02","usd");
 
-        goldAndCurrencyPriceForDate.createJSON();
+        goldAndCurrencyPriceForDate.createJsonObject();
         
         Double priceInTestedDay=165.83;
         String testedDate="2013-01-02";

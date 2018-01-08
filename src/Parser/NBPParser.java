@@ -2,11 +2,11 @@ package Parser;
 
 import WebService.AverageGoldPriceInPeriodOfTime;
 import WebService.GoldAndCurrencyPriceForDate;
-import WebService.Strategy;
+import WebService.IStrategy;
 
 public class NBPParser extends Parser {
 
-    private Strategy operation;
+
 
     @Override
     public void parse(String[] args) {
@@ -19,17 +19,45 @@ public class NBPParser extends Parser {
         switch (args[3])
         {
             case "averagegoldpriceinperiodoftime":
-                this.operation = this.AverageGoldPriceInPeriodOfTimeCreator(args);
+                this.strategy = this.AverageGoldPriceInPeriodOfTimeCreator(args);
                 break;
             case "goldandcurrencypricefordate":
-                this.operation= this.GoldAndCurrencyPriceForDateCreator(args);
+                this.strategy = this.GoldAndCurrencyPriceForDateCreator(args);
                 break;
             default:
-                throw new IllegalArgumentException("Unknown operation");
+                throw new IllegalArgumentException("Unknown strategy");
         }
     }
 
     private AverageGoldPriceInPeriodOfTime AverageGoldPriceInPeriodOfTimeCreator(String[] args)
+    {
+        int argsLength=args.length;
+        int correctLengthOfArgs=8;
+        int indexAfterFunctionName=4;
+        String startDate=null, endDate=null;
+
+        if (argsLength!=correctLengthOfArgs) throw new  IllegalArgumentException("Invalid number of arguments after AverageGoldPriceInPeriodOfTime");
+
+        for(int i=indexAfterFunctionName;i<argsLength;i++)
+        {
+            if(args[i].equals("-start"))
+            {
+                i++;
+                startDate=args[i];
+            }
+            else if (args[i].equals("-end"))
+            {
+                i++;
+                endDate=args[i];
+            }
+        }
+
+        if (startDate==null||endDate==null) throw new IllegalArgumentException("Incorrect syntax specify date \"-d yyyy-mm-dd\" or specify currency \"-c PLN\"");
+
+        return new AverageGoldPriceInPeriodOfTime(startDate,endDate);
+    }
+
+    private GoldAndCurrencyPriceForDate GoldAndCurrencyPriceForDateCreator(String[] args)
     {
         int argsLength=args.length;
         int correctLengthOfArgs=8;
@@ -52,21 +80,10 @@ public class NBPParser extends Parser {
             }
         }
 
-        if (date==null||currency==null) throw new IllegalArgumentException("Incorrect syntax specify date \"-d 1901-01-01\" or specify currency \"-c PLN\"");
+        if (date==null||currency==null) throw new IllegalArgumentException("Incorrect syntax specify date \"-d yyyy-mm-dd\" or specify currency \"-c PLN\"");
 
-        return new AverageGoldPriceInPeriodOfTime(date,currency);
-    }
-
-    private GoldAndCurrencyPriceForDate GoldAndCurrencyPriceForDateCreator(String[] args)
-    {
-
-
-        //return new GoldAndCurrencyPriceForDate();
-        return null;
+        return new GoldAndCurrencyPriceForDate(date,currency);
     }
 
 
-    public Strategy getOperation() {
-        return operation;
-    }
 }

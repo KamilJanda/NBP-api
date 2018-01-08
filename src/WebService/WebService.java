@@ -1,17 +1,22 @@
 package WebService;
 
-import java.util.HashMap;
-import java.util.Map;
+public abstract class WebService {
 
-abstract class WebService {
+    protected IStrategy strategy;
+    //protected Map<String,ParsedObject> parsedObjectsMap;
 
-    protected Strategy strategy;
-    protected Map<String,ParsedObject> parsedObjectsMap;
-
-    WebService(Strategy strategy)
+    WebService(IStrategy IStrategy)
     {
-        this.strategy=strategy;
-        this.parsedObjectsMap=new HashMap<String, ParsedObject>();
+        this.strategy = IStrategy;
+        //this.parsedObjectsMap=new HashMap<String, ParsedObject>();
     }
 
+
+    public String print() {
+        return strategy.execute();
+    }
+
+    public IStrategy getStrategy() {
+        return strategy;
+    }
 }
