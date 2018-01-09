@@ -12,6 +12,9 @@ import java.util.regex.Pattern;
 
 public class GoldAndCurrencyPriceForDate extends NBPStrategy {
 
+    private String date;
+    private String currency;
+
     public GoldAndCurrencyPriceForDate(String date,String currency) {
         this.date=date;
         this.currency=currency.toLowerCase();

@@ -15,12 +15,14 @@ public abstract class NBPStrategy implements IStrategy{
 
     protected NBPGold[] nbpGold;
     protected NBPCurrency nbpCurrency;
+    protected NBPCurrency[] nbpCurrencyArray;
 
-    protected String date;
-    protected String currency;
+    //protected String date;
+    //protected String currency;
 
     protected String urlGoldQuery;
     protected String urlCurrencyQuery;
+    protected String urlCurrencyQueryArray;
 
 
     @Override
@@ -55,17 +57,27 @@ public abstract class NBPStrategy implements IStrategy{
         if(!dataPattern.matcher(date).matches())
             throw new IllegalArgumentException("Invalid data format, correct formta: yyyy-mm-dd");
         */
-        if(urlCurrencyQuery!=null)createJsonNBPCurrency();
+        if(urlCurrencyQuery!=null)
+            nbpCurrency=createJsonNBPCurrency(urlCurrencyQuery);
         if(urlGoldQuery!=null)createJsonNBPGold();
+        if(urlCurrencyQueryArray!=null)createJsonNBPCurrencyAsArray();
 
     }
 
-    private void createJsonNBPCurrency()
+    protected NBPCurrency createJsonNBPCurrency(String urlCurrencyQuery)
     {
         String currencyInJSONFormat=makeQueryToServiceApi(urlCurrencyQuery);
 
         Gson gson= new GsonBuilder().create();
-        this.nbpCurrency=gson.fromJson(currencyInJSONFormat,NBPCurrency.class);
+        return gson.fromJson(currencyInJSONFormat,NBPCurrency.class);
+    }
+
+    private void createJsonNBPCurrencyAsArray()
+    {
+        String currencyInJSONFormat=makeQueryToServiceApi(urlCurrencyQueryArray);
+
+        Gson gson= new GsonBuilder().create();
+        this.nbpCurrencyArray=gson.fromJson(currencyInJSONFormat,NBPCurrency[].class);
     }
 
     private void createJsonNBPGold()
@@ -88,14 +100,6 @@ public abstract class NBPStrategy implements IStrategy{
 
     public NBPCurrency getNbpCurrency() {
         return nbpCurrency;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public String getCurrency() {
-        return currency;
     }
 
     public String getUrlGoldQuery() {

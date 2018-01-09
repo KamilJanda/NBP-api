@@ -6,11 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AverageGoldPriceInPeriodOfTimeTest {
 
-    @Test
-    void countAvgPrice()
-    {
-
-    }
 
     @Test
     void execute() {

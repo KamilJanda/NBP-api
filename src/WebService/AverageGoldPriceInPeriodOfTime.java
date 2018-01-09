@@ -38,4 +38,12 @@ public class AverageGoldPriceInPeriodOfTime extends NBPStrategy{
 
         return result.toString();
     }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
 }
