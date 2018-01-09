@@ -60,7 +60,8 @@ public abstract class NBPStrategy implements IStrategy{
         if(urlCurrencyQuery!=null)
             nbpCurrency=createJsonNBPCurrency(urlCurrencyQuery);
         if(urlGoldQuery!=null)createJsonNBPGold();
-        if(urlCurrencyQueryArray!=null)createJsonNBPCurrencyAsArray();
+        if(urlCurrencyQueryArray!=null)
+            nbpCurrencyArray=createJsonNBPCurrencyAsArray(urlCurrencyQueryArray);
 
     }
 
@@ -72,12 +73,12 @@ public abstract class NBPStrategy implements IStrategy{
         return gson.fromJson(currencyInJSONFormat,NBPCurrency.class);
     }
 
-    private void createJsonNBPCurrencyAsArray()
+    protected NBPCurrency[] createJsonNBPCurrencyAsArray(String urlCurrencyQueryArray)
     {
         String currencyInJSONFormat=makeQueryToServiceApi(urlCurrencyQueryArray);
 
         Gson gson= new GsonBuilder().create();
-        this.nbpCurrencyArray=gson.fromJson(currencyInJSONFormat,NBPCurrency[].class);
+        return gson.fromJson(currencyInJSONFormat,NBPCurrency[].class);
     }
 
     private void createJsonNBPGold()

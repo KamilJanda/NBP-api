@@ -71,21 +71,9 @@ public class CurrencyTheHighestAndTheLowestRate extends NBPStrategy {
     }
 
 
-
     private void findCurrencyTheHighestAndTheLowestRate() throws ParseException, CloneNotSupportedException
     {
-        /*
-        long days=0;
-        try {
-            Date firstDay=sdf.parse(dateOfFirstRecordInNBP);
-            Date today=new Date();
-            days=getDifferenceDays(firstDay,today);
-        }
-        catch (ParseException e)
-        {
-            e.printStackTrace();
-        }
-        */
+
         Date today=new Date();
 
         int maxDayForSingleQuery=93;
