@@ -35,7 +35,7 @@ class CurrencyRateTableTest {
     void execute() {
         CurrencyRateTable test=new CurrencyRateTable("2018-01-01","2018-01-09","usd");
 
-        System.out.println(test.execute());
+        //System.out.println(test.execute());
 
     }
 

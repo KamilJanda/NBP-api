@@ -101,9 +101,9 @@ public class NBPParser extends Parser {
     private CurrencyWithTheBiggestAmplitude creatorCurrencyWithTheBiggestAmplitude(String[] args)
     {
         int argsLength=args.length;
-        int correctLengthOfArgs=8;
+        int correctLengthOfArgs=6;
         int indexAfterFunctionName=4;
-        String date=null, currency=null;
+        String date=null;
 
         if (argsLength!=correctLengthOfArgs) throw new  IllegalArgumentException("Invalid number of arguments after AverageGoldPriceInPeriodOfTime");
 
@@ -114,16 +114,12 @@ public class NBPParser extends Parser {
                 i++;
                 date=args[i];
             }
-            else if (args[i].equals("-c"))
-            {
-                i++;
-                currency=args[i];
-            }
+
         }
 
-        if (date==null||currency==null) throw new IllegalArgumentException("Incorrect syntax specify date \"-d yyyy-mm-dd\" or specify currency \"-c PLN\"");
+        if (date==null) throw new IllegalArgumentException("Incorrect syntax specify date \"-d yyyy-mm-dd\" or specify currency \"-c PLN\"");
 
-        return new CurrencyWithTheBiggestAmplitude(date,currency);
+        return new CurrencyWithTheBiggestAmplitude(date);
     }
 
     private CurrencyWithTheLowestValue creatorCurrencyWithTheLowestValue(String[] args)

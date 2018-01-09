@@ -30,7 +30,7 @@ class NBPParserTest {
         assertTrue(strategy instanceof AverageGoldPriceInPeriodOfTime);
 
 
-        String[] args3={"get","from","NBP","CurrencyWithTheBiggestAmplitude","-d","2016-01-02","-c","usd"};
+        String[] args3={"get","from","NBP","CurrencyWithTheBiggestAmplitude","-d","2016-01-02"};
         nbpParser.parse(args3);
 
         strategy =nbpParser.getStrategy();

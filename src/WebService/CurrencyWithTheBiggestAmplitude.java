@@ -2,9 +2,8 @@ package WebService;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Strategy use to find currency with the biggest amplitude form chosen day to today
@@ -19,7 +18,7 @@ public class CurrencyWithTheBiggestAmplitude extends NBPStrategy {
     private PairOfCurrencyValueAndDate min;
     private PairOfCurrencyValueAndDate max;
 
-    public CurrencyWithTheBiggestAmplitude(String startDate,String currency) {
+    public CurrencyWithTheBiggestAmplitude(String startDate) {
         this.currency=currency;
         this.startDate=startDate;
         min=new PairOfCurrencyValueAndDate("",Double.MAX_VALUE);
@@ -65,24 +64,27 @@ public class CurrencyWithTheBiggestAmplitude extends NBPStrategy {
     }
 
 
-    private void findCurrencyWithTheBiggestAmplitude() throws ParseException, CloneNotSupportedException
+    private String findCurrencyWithTheBiggestAmplitude() throws ParseException, CloneNotSupportedException
     {
 
+        String result=null;
         Date today=new Date();
 
         int maxDayForSingleQuery=93;
         Date startDate=sdf.parse(this.startDate);
         Date endDate= DateUtility.addDays(startDate,maxDayForSingleQuery);
 
-        String start;
-        String end;
-        String url;
+        String start=null;
+        String end=null;
+        String url=null;
 
         double localMax=0.0;
         double localMin=Double.MAX_VALUE;
 
         Map<String,Double> maxForCurrency=new HashMap<>();
         Map<String,Double> minForCurrency=new HashMap<>();
+
+        Map<String,Double> diff=new HashMap<>();
 
 
         while (endDate.before(today))
@@ -94,44 +96,123 @@ public class CurrencyWithTheBiggestAmplitude extends NBPStrategy {
 
             nbpCurrencyArray=createJsonNBPCurrencyAsArray(url);
 
-            localMax=findMaxInPeriod(nbpCurrency);
-            localMin=findMinInPeriod(nbpCurrency);
+            for (NBPCurrency record:nbpCurrencyArray
+                 ) {
+
+                for(Rates rates:record.getRates())
+                {
+                    String currency=rates.getCurrency();
+                    if(maxForCurrency.containsKey(currency))
+                    {
+                        if(rates.getMid()>maxForCurrency.get(currency))
+                        {
+                            maxForCurrency.replace(currency,rates.getMid());
+                        }
+                    }
+                    else
+                    {
+                        maxForCurrency.put(currency,rates.getMid());
+                    }
 
 
-/*
-            if(max.compareTo(localMax)==-1)
-                max=(PairOfCurrencyValueAndDate)localMax.clone();
+                    if(minForCurrency.containsKey(currency))
+                    {
+                        if(rates.getMid()<minForCurrency.get(currency))
+                        {
+                            minForCurrency.replace(currency,rates.getMid());
+                        }
+                    }
+                    else
+                    {
+                        minForCurrency.put(currency,rates.getMid());
+                    }
 
-            if (min.compareTo(localMin)==1)
-                min=(PairOfCurrencyValueAndDate) localMin.clone();
-*/
+
+                }
+
+            }
+
             startDate=endDate;
             endDate= DateUtility.addDays(startDate,maxDayForSingleQuery);
         }
 
+
+
+
         endDate=today;
 
-        start=sdf.format(startDate);
-        end=sdf.format(endDate);
+        url="http://api.nbp.pl/api/exchangerates/tables/a/"+startDate+"/"+endDate+"/?format=json";
 
-        url="http://api.nbp.pl/api/exchangerates/rates/a/usd/"+start+"/"+end+"/?format=json";
+        nbpCurrencyArray=createJsonNBPCurrencyAsArray(url);
 
-        nbpCurrency=createJsonNBPCurrency(url);
+        for (NBPCurrency record:nbpCurrencyArray
+                ) {
 
-        localMax=findMaxInPeriod(nbpCurrency);
-        localMin=findMinInPeriod(nbpCurrency);
-/*
-        if(max.compareTo(localMax)==-1)
-            max=(PairOfCurrencyValueAndDate)localMax.clone();
+            for(Rates rates:record.getRates())
+            {
+                String currency=rates.getCurrency();
+                if(maxForCurrency.containsKey(currency))
+                {
+                    if(rates.getMid()>maxForCurrency.get(currency))
+                    {
+                        maxForCurrency.replace(currency,rates.getMid());
+                    }
+                }
+                else
+                {
+                    maxForCurrency.put(currency,rates.getMid());
+                }
 
-        if (min.compareTo(localMin)==1)
-            min=(PairOfCurrencyValueAndDate) localMin.clone();
-*/
 
+                if(minForCurrency.containsKey(currency))
+                {
+                    if(rates.getMid()<minForCurrency.get(currency))
+                    {
+                        minForCurrency.replace(currency,rates.getMid());
+                    }
+                }
+                else
+                {
+                    minForCurrency.put(currency,rates.getMid());
+                }
+
+
+            }
+
+        }
+
+
+        for (Map.Entry<String, Double> entry : maxForCurrency.entrySet()) {
+            String key = entry.getKey();
+            Double max = entry.getValue();
+            Double min = minForCurrency.get(key);
+            diff.put(key,max-min);
+        }
+
+        Map<String,Double> sortedNewMap = diff.entrySet().stream().sorted(Comparator.comparing(Map.Entry::getValue))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                        (e1, e2) -> e1, LinkedHashMap::new));
+
+
+        Map.Entry<String,Double> entry = sortedNewMap.entrySet().iterator().next();
+        String key = entry.getKey();
+        Double value = entry.getValue();
+
+        return key+" różnica: "+value;
     }
 
     @Override
     public String execute() {
-        return null;
+        String result=null;
+
+        try {
+            result=findCurrencyWithTheBiggestAmplitude();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return result;
     }
 }
