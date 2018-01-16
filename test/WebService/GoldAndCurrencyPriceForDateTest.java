@@ -20,6 +20,9 @@ class GoldAndCurrencyPriceForDateTest {
         
         assertEquals(goldResult,goldExpected);
         assertEquals(currencyResult,currencyExpected);
+
+
+
         
     }
 
@@ -38,6 +41,18 @@ class GoldAndCurrencyPriceForDateTest {
 
 
 
+
+    }
+
+    @Test
+    void execute()
+    {
+        GoldAndCurrencyPriceForDate test=new GoldAndCurrencyPriceForDate("2016-02-04","gbp");
+
+        String result = test.execute();
+        String expected = "Kurs średni waluty gbp to: 5.7822 ,kurs zlota to: 146.78 w dniu 2016-02-04";
+
+        assertEquals(result,expected);
 
     }
 

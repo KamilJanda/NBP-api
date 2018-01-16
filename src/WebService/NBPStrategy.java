@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -38,6 +39,10 @@ public abstract class NBPStrategy implements IStrategy{
             while ((inputLine = in.readLine()) != null)
                 response.append(inputLine);
             in.close();
+        }
+        catch (FileNotFoundException e)
+        {
+            e.getMessage();
         }
         catch (IOException e)
         {

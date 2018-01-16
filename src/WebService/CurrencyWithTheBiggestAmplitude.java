@@ -1,5 +1,6 @@
 package WebService;
 
+import java.net.ConnectException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -92,7 +93,7 @@ public class CurrencyWithTheBiggestAmplitude extends NBPStrategy {
             start=sdf.format(startDate);
             end=sdf.format(endDate);
 
-            url="http://api.nbp.pl/api/exchangerates/tables/a/"+startDate+"/"+endDate+"/?format=json";
+            url="http://api.nbp.pl/api/exchangerates/tables/a/"+start+"/"+end+"/?format=json";
 
             nbpCurrencyArray=createJsonNBPCurrencyAsArray(url);
 
@@ -141,7 +142,7 @@ public class CurrencyWithTheBiggestAmplitude extends NBPStrategy {
 
         endDate=today;
 
-        url="http://api.nbp.pl/api/exchangerates/tables/a/"+startDate+"/"+endDate+"/?format=json";
+        url="http://api.nbp.pl/api/exchangerates/tables/a/"+start+"/"+end+"/?format=json";
 
         nbpCurrencyArray=createJsonNBPCurrencyAsArray(url);
 
@@ -198,7 +199,55 @@ public class CurrencyWithTheBiggestAmplitude extends NBPStrategy {
         String key = entry.getKey();
         Double value = entry.getValue();
 
-        return key+" różnica: "+value;
+        System.out.println(sortedNewMap);
+
+        return key+" różnica: "+String.format("%.2f",value);
+    }
+
+    
+    private double differenceMaxAndMinForCurrency(String currency)
+    {
+        CurrencyTheHighestAndTheLowestRate currencyMaxAndMin=new CurrencyTheHighestAndTheLowestRate(currency);
+        currencyMaxAndMin.setDateOfFirstRecordInNBP(startDate);
+        try {
+            currencyMaxAndMin.findCurrencyTheHighestAndTheLowestRate();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+
+        double max=currencyMaxAndMin.getMax().value;
+        double min=currencyMaxAndMin.getMin().value;
+
+        return max-min;
+    }
+
+    private String test()
+    {
+        String result=null;
+        String url="http://api.nbp.pl/api/exchangerates/tables/a/?format=json";
+        
+        nbpCurrencyArray = createJsonNBPCurrencyAsArray(url);
+        
+        Map<String,Double> currencyAndAmplitude=new HashMap<>();
+
+        double diff=0;
+        for (Rates rates:nbpCurrencyArray[0].getRates()
+             ) {
+            diff=differenceMaxAndMinForCurrency(rates.getCode());
+            currencyAndAmplitude.put(rates.getCurrency(),diff);
+        }
+
+
+        Map<String,Double> sortedNewMap = currencyAndAmplitude.entrySet().stream().sorted(Comparator.comparing(Map.Entry::getValue))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                        (e1, e2) -> e1, LinkedHashMap::new));
+
+        System.out.println(sortedNewMap);
+
+
+        return result;
     }
 
     @Override
@@ -206,7 +255,8 @@ public class CurrencyWithTheBiggestAmplitude extends NBPStrategy {
         String result=null;
 
         try {
-            result=findCurrencyWithTheBiggestAmplitude();
+            //result=findCurrencyWithTheBiggestAmplitude();
+            result=test();
         }
         catch (Exception e)
         {

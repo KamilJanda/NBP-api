@@ -30,10 +30,12 @@ public class GoldAndCurrencyPriceForDate extends NBPStrategy {
 
         result.append("Kurs średni waluty ");
         result.append(currency);
-        result.append(" w dniu ");
-        result.append(date);
         result.append(" to: ");
         result.append(nbpCurrency.getRates()[0].getMid());
+        result.append(" ,kurs zlota to: ");
+        result.append(nbpGold[0].getCena());
+        result.append(" w dniu ");
+        result.append(date);
 
         return result.toString();
     }

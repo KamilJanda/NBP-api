@@ -33,21 +33,26 @@ class CurrencyTheHighestAndTheLowestRateTest {
     void findMaxInPeriod(){
         CurrencyTheHighestAndTheLowestRate test=new CurrencyTheHighestAndTheLowestRate("usd");
 
-        NBPCurrency testPeriod=test.createJsonNBPCurrency("http://api.nbp.pl/api/exchangerates/rates/a/usd/2016-01-13/2016-01-15/?format=json");
+        NBPCurrency testPeriod=test.createJsonNBPCurrency("http://api.nbp.pl/api/exchangerates/rates/a/usd/2016-01-13/2016-01-19/?format=json");
 
         PairOfCurrencyValueAndDate result=test.findMaxInPeriod(testPeriod);
 
-        assertEquals(result.value,4.0411);
-        assertEquals(result.date,"2016-01-15");
+        assertEquals(result.value,4.1133);
+        assertEquals(result.date,"2016-01-18");
     }
 
 
     @Test
     void execute() {
-        CurrencyTheHighestAndTheLowestRate test=new CurrencyTheHighestAndTheLowestRate("usd");
+        CurrencyTheHighestAndTheLowestRate test=new CurrencyTheHighestAndTheLowestRate("gbp");
 
 
-        System.out.println(test.execute());
+        String expected = "Maximum : 7.3516 w dniu 2004-03-01\n" +
+                "Min: 4.0336 w dniu: 2008-07-21";
+
+        String result = test.execute();
+
+        assertEquals(result,expected);
 
 
 

@@ -1,5 +1,6 @@
 package WebService;
 
+import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -23,7 +24,7 @@ public class CurrencyTheHighestAndTheLowestRate extends NBPStrategy {
         sdf = new SimpleDateFormat("yyyy-MM-dd");
         dateOfFirstRecordInNBP="2002-01-02";
         min=new PairOfCurrencyValueAndDate("",Double.MAX_VALUE);
-        max=new PairOfCurrencyValueAndDate("",-1);
+        max=new PairOfCurrencyValueAndDate("",0);
 
     }
 
@@ -71,7 +72,7 @@ public class CurrencyTheHighestAndTheLowestRate extends NBPStrategy {
     }
 
 
-    private void findCurrencyTheHighestAndTheLowestRate() throws ParseException, CloneNotSupportedException
+    void findCurrencyTheHighestAndTheLowestRate() throws ParseException, CloneNotSupportedException
     {
 
         Date today=new Date();
@@ -80,31 +81,32 @@ public class CurrencyTheHighestAndTheLowestRate extends NBPStrategy {
         Date startDate=sdf.parse(dateOfFirstRecordInNBP);
         Date endDate= DateUtility.addDays(startDate,maxDayForSingleQuery);
 
-        String start;
-        String end;
-        String url;
+        String start=null;
+        String end=null;
+        String url=null;
 
-        PairOfCurrencyValueAndDate localMax=new PairOfCurrencyValueAndDate("",0);
-        PairOfCurrencyValueAndDate localMin=new PairOfCurrencyValueAndDate("",Double.MAX_VALUE);
+        PairOfCurrencyValueAndDate localMax=null;
+        PairOfCurrencyValueAndDate localMin=null;
 
         while (endDate.before(today))
         {
             start=sdf.format(startDate);
             end=sdf.format(endDate);
 
-            url="http://api.nbp.pl/api/exchangerates/rates/a/usd/"+start+"/"+end+"/?format=json";
+            url="http://api.nbp.pl/api/exchangerates/rates/a/"+currency+"/"+start+"/"+end+"/?format=json";
 
-            nbpCurrency=createJsonNBPCurrency(url);
+            nbpCurrency = createJsonNBPCurrency(url);
 
-            localMax=findMaxInPeriod(nbpCurrency);
-            localMin=findMinInPeriod(nbpCurrency);
+            if(nbpCurrency!=null) {
+                localMax = findMaxInPeriod(nbpCurrency);
+                localMin = findMinInPeriod(nbpCurrency);
 
-            if(max.compareTo(localMax)==-1)
-                max=(PairOfCurrencyValueAndDate)localMax.clone();
+                if (max.compareTo(localMax) == -1)
+                    max = (PairOfCurrencyValueAndDate) localMax.clone();
 
-            if (min.compareTo(localMin)==1)
-                min=(PairOfCurrencyValueAndDate) localMin.clone();
-
+                if (min.compareTo(localMin) == 1)
+                    min = (PairOfCurrencyValueAndDate) localMin.clone();
+            }
             startDate=endDate;
             endDate= DateUtility.addDays(startDate,maxDayForSingleQuery);
         }
@@ -114,19 +116,19 @@ public class CurrencyTheHighestAndTheLowestRate extends NBPStrategy {
         start=sdf.format(startDate);
         end=sdf.format(endDate);
 
-        url="http://api.nbp.pl/api/exchangerates/rates/a/usd/"+start+"/"+end+"/?format=json";
+        url="http://api.nbp.pl/api/exchangerates/rates/a/"+currency+"/"+start+"/"+end+"/?format=json";
 
         nbpCurrency=createJsonNBPCurrency(url);
+        if(nbpCurrency!=null) {
+            localMin = findMinInPeriod(nbpCurrency);
+            localMax = findMaxInPeriod(nbpCurrency);
 
-        localMax=findMaxInPeriod(nbpCurrency);
-        localMin=findMinInPeriod(nbpCurrency);
+            if (max.compareTo(localMax) == -1)
+                max = (PairOfCurrencyValueAndDate) localMax.clone();
 
-        if(max.compareTo(localMax)==-1)
-            max=(PairOfCurrencyValueAndDate)localMax.clone();
-
-        if (min.compareTo(localMin)==1)
-            min=(PairOfCurrencyValueAndDate) localMin.clone();
-
+            if (min.compareTo(localMin) == 1)
+                min = (PairOfCurrencyValueAndDate) localMin.clone();
+        }
 
     }
 
@@ -150,6 +152,13 @@ public class CurrencyTheHighestAndTheLowestRate extends NBPStrategy {
         return "Maximum : "+max.value+" w dniu "+max.date+"\nMin: "+min.value+" w dniu: "+min.date;
     }
 
+    public String getDateOfFirstRecordInNBP() {
+        return dateOfFirstRecordInNBP;
+    }
+
+    public void setDateOfFirstRecordInNBP(String dateOfFirstRecordInNBP) {
+        this.dateOfFirstRecordInNBP = dateOfFirstRecordInNBP;
+    }
 
     public PairOfCurrencyValueAndDate getMin() {
         return min;

@@ -13,12 +13,14 @@ class CurrencyWithTheBiggestAmplitudeTest {
     void findMinInPeriod() {
     }
 
+
     @Test
     void execute() {
 
         CurrencyWithTheBiggestAmplitude test=new CurrencyWithTheBiggestAmplitude("2016-01-01");
 
-        //test.execute();
+
+        System.out.println(test.execute());
 
 
     }
