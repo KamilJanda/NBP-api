@@ -101,7 +101,7 @@ public class CurrencyRateTable extends NBPStrategy {
 
                 int scale=val.intValue();
 
-                String ascii=createAscii(scale-300,"∎");
+                String ascii=createAscii(scale-300,"*");
 
                 result.append(": ");
                 result.append(ascii);

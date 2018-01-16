@@ -1,5 +1,9 @@
 package WebService;
 
+/**
+ * Strategy use to get average gold price
+ */
+
 public class AverageGoldPriceInPeriodOfTime extends NBPStrategy{
 
     private String startDate;

@@ -19,26 +19,26 @@ public class Main {
 
         ServiceParser serviceParser=new ServiceParser();
 
-        serviceParser.parse(args);
 
-        IStrategy strategy=serviceParser.getServiceParser().getStrategy();
-        String serviceName=serviceParser.getServiceName();
+        try {
+            serviceParser.parse(args);
+
+            IStrategy strategy=serviceParser.getServiceParser().getStrategy();
+            String serviceName=serviceParser.getServiceName();
 
 
-        WebService webService=WebServiceFactory.create(serviceName,strategy);
+            WebService webService=WebServiceFactory.create(serviceName,strategy);
 
-        System.out.println(webService.print());
+            System.out.println(webService.print());
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
 
-        /*
-        URL oracle = new URL("http://api.nbp.pl/api/exchangerates/tables/a/?format=json");
-        URLConnection yc = oracle.openConnection();
-        BufferedReader in = new BufferedReader(new InputStreamReader(
-                yc.getInputStream()));
-        String inputLine;
-        while ((inputLine = in.readLine()) != null)
-            System.out.println(inputLine);
-        in.close();
-    */
+
+
+
+
+
 
     }
 }

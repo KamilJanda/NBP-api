@@ -56,12 +56,7 @@ public abstract class NBPStrategy implements IStrategy{
     @Override
     public void createJsonObject()
     {
-        /*
-        Pattern dataPattern=Pattern.compile("[1-2](\\d{3})-(\\d{2})-(\\d{2})");
 
-        if(!dataPattern.matcher(date).matches())
-            throw new IllegalArgumentException("Invalid data format, correct formta: yyyy-mm-dd");
-        */
         if(urlCurrencyQuery!=null)
             nbpCurrency=createJsonNBPCurrency(urlCurrencyQuery);
         if(urlGoldQuery!=null)createJsonNBPGold();
@@ -69,6 +64,8 @@ public abstract class NBPStrategy implements IStrategy{
             nbpCurrencyArray=createJsonNBPCurrencyAsArray(urlCurrencyQueryArray);
 
     }
+
+
 
     protected NBPCurrency createJsonNBPCurrency(String urlCurrencyQuery)
     {

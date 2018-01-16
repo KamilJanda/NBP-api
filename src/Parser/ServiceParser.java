@@ -16,6 +16,13 @@ public class ServiceParser {
 
     public void parse(String[] args){
 
+        String functions="GoldAndCurrencyPriceForDate\nAverageGoldPriceInPeriodOfTime\nCurrencyWithTheBiggestAmplitude\nCurrencyWithTheLowestValue\nCurrencyExchangeRateSorted\nCurrencyTheHighestAndTheLowestRate\nCurrencyRateTable";
+
+        if(args.length==0)
+        {
+            throw new IllegalArgumentException("Format of query get from {service} {function} {arguments for function}\n"+"Functios:\n"+functions);
+        }
+
         if(args[0].toLowerCase().equals("get")&&args[1].toLowerCase().equals("from"))
         {
             serviceName =args[2];

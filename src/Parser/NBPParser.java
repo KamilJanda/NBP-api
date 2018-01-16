@@ -105,7 +105,7 @@ public class NBPParser extends Parser {
         int indexAfterFunctionName=4;
         String date=null;
 
-        if (argsLength!=correctLengthOfArgs) throw new  IllegalArgumentException("Invalid number of arguments after AverageGoldPriceInPeriodOfTime");
+        if (argsLength!=correctLengthOfArgs) throw new  IllegalArgumentException("Invalid number of arguments after CurrencyWithTheBiggestAmplitude");
 
         for(int i=indexAfterFunctionName;i<argsLength;i++)
         {
@@ -117,7 +117,7 @@ public class NBPParser extends Parser {
 
         }
 
-        if (date==null) throw new IllegalArgumentException("Incorrect syntax specify date \"-d yyyy-mm-dd\" or specify currency \"-c PLN\"");
+        if (date==null) throw new IllegalArgumentException("Incorrect syntax specify date \"-d yyyy-mm-dd\"");
 
         return new CurrencyWithTheBiggestAmplitude(date);
     }
