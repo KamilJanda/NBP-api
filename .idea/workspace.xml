@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ccd10b1-2924-444a-9714-58aeb324a363" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/WebService/PairOfCurrencyValueAndDateTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NBP/WebService/GoldAndCurrencyPriceForDate.class" afterPath="$PROJECT_DIR$/out/production/NBP/WebService/GoldAndCurrencyPriceForDate.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WebService/CurrencyTheHighestAndTheLowestRate.java" afterPath="$PROJECT_DIR$/src/WebService/CurrencyTheHighestAndTheLowestRate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WebService/CurrencyWithTheBiggestAmplitude.java" afterPath="$PROJECT_DIR$/src/WebService/CurrencyWithTheBiggestAmplitude.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WebService/GoldAndCurrencyPriceForDate.java" afterPath="$PROJECT_DIR$/src/WebService/GoldAndCurrencyPriceForDate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WebService/NBPStrategy.java" afterPath="$PROJECT_DIR$/src/WebService/NBPStrategy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/WebService/CurrencyTheHighestAndTheLowestRateTest.java" afterPath="$PROJECT_DIR$/test/WebService/CurrencyTheHighestAndTheLowestRateTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/WebService/CurrencyWithTheBiggestAmplitudeTest.java" afterPath="$PROJECT_DIR$/test/WebService/CurrencyWithTheBiggestAmplitudeTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/WebService/GoldAndCurrencyPriceForDateTest.java" afterPath="$PROJECT_DIR$/test/WebService/GoldAndCurrencyPriceForDateTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -425,7 +417,7 @@
       <workItem from="1515494719653" duration="8812000" />
       <workItem from="1515506524161" duration="3721000" />
       <workItem from="1515853090126" duration="61000" />
-      <workItem from="1516059375400" duration="7627000" />
+      <workItem from="1516059375400" duration="7648000" />
     </task>
     <task id="LOCAL-00001" summary="test3">
       <created>1515270636524</created>
@@ -497,7 +489,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515509977516</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="all strategy implemented">
+      <created>1516067089593</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1516067089593</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -533,7 +532,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92271000" />
+    <option name="totallyTimeSpent" value="92292000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -581,9 +580,9 @@
     <MESSAGE value="new tests" />
     <MESSAGE value="run from command line done" />
     <MESSAGE value="add all strategy" />
-    <MESSAGE value="all strategy implemented" />
     <MESSAGE value="all strategy implemented1" />
-    <option name="LAST_COMMIT_MESSAGE" value="all strategy implemented1" />
+    <MESSAGE value="all strategy implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="all strategy implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
