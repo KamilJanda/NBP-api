@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ccd10b1-2924-444a-9714-58aeb324a363" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/NBP/WebService/GoldAndCurrencyPriceForDate.class" afterPath="$PROJECT_DIR$/out/production/NBP/WebService/GoldAndCurrencyPriceForDate.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WebService/CurrencyWithTheBiggestAmplitude.java" afterPath="$PROJECT_DIR$/src/WebService/CurrencyWithTheBiggestAmplitude.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/WebService/CurrencyWithTheBiggestAmplitudeTest.java" afterPath="$PROJECT_DIR$/test/WebService/CurrencyWithTheBiggestAmplitudeTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,19 +16,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="CurrencyTheHighestAndTheLowestRate.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CurrencyTheHighestAndTheLowestRate.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WebService/CurrencyTheHighestAndTheLowestRate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="950">
+            <state relative-caret-position="1982">
               <caret line="154" column="47" lean-forward="false" selection-start-line="154" selection-start-column="47" selection-end-line="154" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#findMinInPeriod#0;class#CurrencyTheHighestAndTheLowestRate#0" expanded="false" />
                 <element signature="e#4458#4459#0" expanded="true" />
-                <element signature="e#4652#4653#0" expanded="true" />
-                <element signature="e#4678#4679#0" expanded="true" />
-                <element signature="e#4728#4729#0" expanded="true" />
-                <element signature="e#4754#4755#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -36,23 +33,11 @@
       <file leaf-file-name="CurrencyWithTheBiggestAmplitude.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/WebService/CurrencyWithTheBiggestAmplitude.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="242" column="131" lean-forward="false" selection-start-line="242" selection-start-column="131" selection-end-line="242" selection-end-column="131" />
+            <state relative-caret-position="-735">
+              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#findMaxInPeriod#0;class#CurrencyWithTheBiggestAmplitude#0" expanded="false" />
-                <element signature="method#findMinInPeriod#0;class#CurrencyWithTheBiggestAmplitude#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CurrencyWithTheBiggestAmplitudeTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/WebService/CurrencyWithTheBiggestAmplitudeTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -124,8 +109,8 @@
         <option value="$PROJECT_DIR$/test/WebService/PairOfCurrencyValueAndDateTest.java" />
         <option value="$PROJECT_DIR$/test/WebService/CurrencyTheHighestAndTheLowestRateTest.java" />
         <option value="$PROJECT_DIR$/src/WebService/NBPStrategy.java" />
-        <option value="$PROJECT_DIR$/test/WebService/CurrencyWithTheBiggestAmplitudeTest.java" />
         <option value="$PROJECT_DIR$/src/WebService/CurrencyTheHighestAndTheLowestRate.java" />
+        <option value="$PROJECT_DIR$/test/WebService/CurrencyWithTheBiggestAmplitudeTest.java" />
         <option value="$PROJECT_DIR$/src/WebService/CurrencyWithTheBiggestAmplitude.java" />
       </list>
     </option>
@@ -158,6 +143,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -208,7 +194,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
@@ -417,7 +402,8 @@
       <workItem from="1515494719653" duration="8812000" />
       <workItem from="1515506524161" duration="3721000" />
       <workItem from="1515853090126" duration="61000" />
-      <workItem from="1516059375400" duration="7648000" />
+      <workItem from="1516059375400" duration="7669000" />
+      <workItem from="1516103786454" duration="1730000" />
     </task>
     <task id="LOCAL-00001" summary="test3">
       <created>1515270636524</created>
@@ -496,47 +482,53 @@
       <option name="project" value="LOCAL" />
       <updated>1516067089593</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="all strategy implemented">
+      <created>1516067103087</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1516067103087</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CurrencyWithTheBiggestAmplitudeTest - 2018.01.16 at 02h 17m 47s.xml">
+    <history-entry file="CurrencyWithTheBiggestAmplitudeTest - 2018.01.16 at 12h 58m 38s.xml">
       <configuration name="CurrencyWithTheBiggestAmplitudeTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CurrencyWithTheBiggestAmplitudeTest - 2018.01.16 at 02h 20m 36s.xml">
+    <history-entry file="CurrencyWithTheBiggestAmplitudeTest - 2018.01.16 at 13h 12m 32s.xml">
       <configuration name="CurrencyWithTheBiggestAmplitudeTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CurrencyWithTheBiggestAmplitudeTest - 2018.01.16 at 02h 21m 52s.xml">
+    <history-entry file="CurrencyWithTheBiggestAmplitudeTest - 2018.01.16 at 13h 12m 47s.xml">
       <configuration name="CurrencyWithTheBiggestAmplitudeTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CurrencyWithTheBiggestAmplitudeTest - 2018.01.16 at 02h 26m 43s.xml">
+    <history-entry file="CurrencyWithTheBiggestAmplitudeTest - 2018.01.16 at 13h 14m 45s.xml">
       <configuration name="CurrencyWithTheBiggestAmplitudeTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CurrencyWithTheBiggestAmplitudeTest - 2018.01.16 at 02h 31m 50s.xml">
+    <history-entry file="CurrencyWithTheBiggestAmplitudeTest - 2018.01.16 at 13h 15m 28s.xml">
       <configuration name="CurrencyWithTheBiggestAmplitudeTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CurrencyWithTheBiggestAmplitudeTest - 2018.01.16 at 02h 32m 42s.xml">
+    <history-entry file="CurrencyWithTheBiggestAmplitudeTest - 2018.01.16 at 13h 17m 06s.xml">
       <configuration name="CurrencyWithTheBiggestAmplitudeTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CurrencyWithTheBiggestAmplitudeTest - 2018.01.16 at 02h 34m 27s.xml">
+    <history-entry file="CurrencyWithTheBiggestAmplitudeTest - 2018.01.16 at 13h 17m 48s.xml">
       <configuration name="CurrencyWithTheBiggestAmplitudeTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CurrencyWithTheBiggestAmplitudeTest - 2018.01.16 at 02h 35m 50s.xml">
+    <history-entry file="CurrencyWithTheBiggestAmplitudeTest - 2018.01.16 at 13h 19m 51s.xml">
       <configuration name="CurrencyWithTheBiggestAmplitudeTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CurrencyWithTheBiggestAmplitudeTest - 2018.01.16 at 02h 36m 15s.xml">
+    <history-entry file="CurrencyWithTheBiggestAmplitudeTest - 2018.01.16 at 13h 21m 05s.xml">
       <configuration name="CurrencyWithTheBiggestAmplitudeTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CurrencyWithTheBiggestAmplitudeTest - 2018.01.16 at 02h 44m 27s.xml">
+    <history-entry file="CurrencyWithTheBiggestAmplitudeTest - 2018.01.16 at 13h 24m 44s.xml">
       <configuration name="CurrencyWithTheBiggestAmplitudeTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92292000" />
+    <option name="totallyTimeSpent" value="94043000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -551,7 +543,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17864583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17864583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -586,7 +578,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="23" />
+      <option name="time" value="24" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -864,9 +856,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="271" column="0" lean-forward="false" selection-start-line="271" selection-start-column="0" selection-end-line="271" selection-end-column="0" />
-          <folding>
-            <element signature="e#11326#11327#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -874,7 +863,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -882,7 +870,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="592" column="58" lean-forward="false" selection-start-line="592" selection-start-column="58" selection-end-line="592" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -944,9 +931,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-          <folding>
-            <element signature="e#3135#3136#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -954,7 +938,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="402">
           <caret line="907" column="0" lean-forward="false" selection-start-line="907" selection-start-column="0" selection-end-line="907" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -962,9 +945,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="597" column="0" lean-forward="false" selection-start-line="597" selection-start-column="0" selection-end-line="597" selection-end-column="0" />
-          <folding>
-            <element signature="e#23463#23464#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -986,22 +966,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WebService/CurrencyTheHighestAndTheLowestRate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="950">
-          <caret line="154" column="47" lean-forward="false" selection-start-line="154" selection-start-column="47" selection-end-line="154" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#findMinInPeriod#0;class#CurrencyTheHighestAndTheLowestRate#0" expanded="false" />
-            <element signature="e#4458#4459#0" expanded="true" />
-            <element signature="e#4652#4653#0" expanded="true" />
-            <element signature="e#4678#4679#0" expanded="true" />
-            <element signature="e#4728#4729#0" expanded="true" />
-            <element signature="e#4754#4755#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/WebService/CurrencyExchangeRateSorted.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
@@ -1016,7 +980,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
           <caret line="48" column="6" lean-forward="false" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1028,18 +991,6 @@
             <element signature="e#852#853#0" expanded="true" />
             <element signature="e#883#884#0" expanded="true" />
             <element signature="e#941#942#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/WebService/CurrencyWithTheBiggestAmplitude.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="242" column="131" lean-forward="false" selection-start-line="242" selection-start-column="131" selection-end-line="242" selection-end-column="131" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#findMaxInPeriod#0;class#CurrencyWithTheBiggestAmplitude#0" expanded="false" />
-            <element signature="method#findMinInPeriod#0;class#CurrencyWithTheBiggestAmplitude#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1064,9 +1015,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/WebService/CurrencyWithTheBiggestAmplitudeTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="462">
+          <caret line="24" column="36" lean-forward="false" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WebService/CurrencyWithTheBiggestAmplitude.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-735">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WebService/CurrencyTheHighestAndTheLowestRate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1982">
+          <caret line="154" column="47" lean-forward="false" selection-start-line="154" selection-start-column="47" selection-end-line="154" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#findMinInPeriod#0;class#CurrencyTheHighestAndTheLowestRate#0" expanded="false" />
+            <element signature="e#4458#4459#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

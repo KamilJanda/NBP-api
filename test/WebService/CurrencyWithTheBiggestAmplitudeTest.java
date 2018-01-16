@@ -19,8 +19,10 @@ class CurrencyWithTheBiggestAmplitudeTest {
 
         CurrencyWithTheBiggestAmplitude test=new CurrencyWithTheBiggestAmplitude("2016-01-01");
 
+        String result = test.execute();
+        String expected = "Waluta z najwieksza ampitutda to: funt szterling amplituda: 1.3106";
 
-        System.out.println(test.execute());
+        assertEquals(result,expected);
 
 
     }
